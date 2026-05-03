@@ -13,7 +13,20 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        serif: ['"Cormorant Garamond"', 'serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
       colors: {
+        navy: {
+          DEFAULT: "hsl(var(--navy-deep))",
+          darker: "hsl(var(--navy-darker))",
+        },
+        silver: {
+          DEFAULT: "hsl(var(--silver))",
+          bright: "hsl(var(--silver-bright))",
+          muted: "hsl(var(--silver-muted))",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
