@@ -60,9 +60,12 @@ const Index = () => {
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-navy-darker/60 border-b border-border/40">
         <div className="container flex items-center justify-between h-20">
-          <a href="#top" className="flex items-baseline gap-3">
-            <Monogram />
-            <span className="font-serif-display text-xl tracking-[0.5em] text-silver-bright">VIKTORIA</span>
+          <a href="#top" className="flex items-baseline gap-4">
+            <img
+              src="/logo-viktoria.svg" 
+              alt="Viktoria" 
+              className="h-10" />
+            <span className="font-serif-display text-xl tracking-[0.4em] text-silver-bright">VIKTORIA</span>
           </a>
           <nav className="hidden md:flex gap-10 text-xs tracking-[0.25em] uppercase text-silver-muted">
             <a href="#coleccion" className="hover:text-silver-bright transition-colors">Colección</a>
@@ -119,16 +122,17 @@ const Index = () => {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16">
             {products.map((p, i) => (
               <Reveal key={p.name} delay={i * 80}>
                 <article className="group cursor-pointer">
-                  <div className="relative overflow-hidden bg-gradient-to-br from-navy to-navy-darker aspect-[4/5] mb-6">
+                  <div className="relative overflow-hidden bg-gradient-to-br from-navy to-navy-darker aspect-[4/5] mb-4">
                     <img
                       src={p.img}
                       alt={p.name}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110"
+                      className="w-full h-full max-h-[320px] object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
+                      
                     />
                     <div className="absolute inset-0 bg-navy-darker/0 group-hover:bg-navy-darker/30 transition-colors duration-700" />
                     <div className="absolute bottom-0 inset-x-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
@@ -140,7 +144,7 @@ const Index = () => {
                   <div className="flex justify-between items-baseline">
                     <div>
                       <p className="text-[10px] tracking-[0.4em] uppercase text-silver-muted mb-2">{p.cat}</p>
-                      <h3 className="font-serif-display text-2xl text-silver-bright">{p.name}</h3>
+                      <h3 className="font-serif-display text-xl text-silver-bright">{p.name}</h3>
                     </div>
                     <p className="text-sm tracking-wider text-silver">{p.price}</p>
                   </div>
@@ -185,7 +189,7 @@ const Index = () => {
           </Reveal>
           <Reveal delay={150} className="order-1 md:order-2">
             <div className="relative">
-              <div className="aspect-[4/5] overflow-hidden bg-navy-darker">
+              <div className="aspect-[3/4] overflow-hidden bg-navy-darker">
                 <img src={historiaImg} alt="Aretes de filigrana en plata Viktoria" loading="lazy" className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-8 -left-8 w-40 h-52 hidden md:block overflow-hidden border-4 border-navy">
