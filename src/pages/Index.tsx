@@ -1,30 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Instagram, MessageCircle, Mail, ArrowRight } from "lucide-react";
+import { Instagram, Mail, ArrowRight, Phone } from "lucide-react";
 
 import heroImg from "@/assets/hero-jewelry.jpg";
-import historiaImg from "@/assets/historia.jpg";
-import artisanImg from "@/assets/artisan-hands.jpg";
+import historiaImg from "@/assets/proceso2.png";
+import artisanImg from "@/assets/proceso1.png";
 
-import pAretesAzalea from "@/assets/products/aretes-azalea.jpg";
-import pAretesBrisa from "@/assets/products/aretes-brisa.jpg";
-import pAretesGota from "@/assets/products/aretes-gota.jpg";
-import pAnilloAurea from "@/assets/products/anillo-aurea.jpg";
-import pAnilloAlba from "@/assets/products/anillo-alba.jpg";
-import pSetVuelo from "@/assets/products/set-vuelo.jpg";
-import pCadenaEstela from "@/assets/products/cadena-estela.jpg";
+import { products } from "@/data/products";
 
-const products = [
-  { name: "Topos Azalea", price: "$96.000", img: pAretesAzalea, cat: "Topos" },
-  { name: "Aretes Brisa", price: "$119.000", img: pAretesBrisa, cat: "Aretes" },
-  { name: "Aretes Gota", price: "$93.000", img: pAretesGota, cat: "Aretes" },
-  { name: "Anillo Aurea", price: "$155.000", img: pAnilloAurea, cat: "Anillos" },
-  { name: "Anillo Alba", price: "$119.000", img: pAnilloAlba, cat: "Anillos" },
-  { name: "Set Vuelo", price: "$198.000", img: pSetVuelo, cat: "Sets" },
-];
 
 const categories = [
-  "Topos", "Aretes", "Dijes", "Sets", "Cadenas y Pulseras", "Anillos", "Earcuffs",
+  "Topos", "Aretes", "Dijes", "Sets", "Cadenas", "Pulseras", "Anillos", "Earcuffs",
 ];
 
 const Reveal = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
@@ -55,17 +41,49 @@ const Monogram = () => (
 );
 
 const Index = () => {
+  const [showPromo, setShowPromo] = useState(true);
+  const grouped = products.reduce((acc, p) => {
+  if (!acc[p.category]) acc[p.category] = [];
+  acc[p.category].push(p);
+  return acc;
+}, {} as Record<string, typeof products>);
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* NAV */}
+      {showPromo && (
+    <div className="fixed inset-0 z-[999] bg-black/70 flex items-center justify-center">
+
+      <div className="relative max-w-md w-full mx-4">
+
+        {/* BOTÓN CERRAR */}
+        <button
+          onClick={() => setShowPromo(false)}
+          className="absolute top-3 right-3 bg-white text-black rounded-full w-9 h-9 flex items-center justify-center shadow-lg hover:scale-110 transition"
+        >
+          ✕
+        </button>
+
+        {/* IMAGEN */}
+        <img
+          src="/madre.jpg"
+          alt="Promo Día de la Madre"
+          className="w-full rounded-lg"
+        />
+
+      </div>
+    </div>
+  )}
+{/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-navy-darker/60 border-b border-border/40">
         <div className="container flex items-center justify-between h-20">
-          <a href="#top" className="flex items-baseline gap-4">
+          <a href="#top" className="flex items-baseline gap-3">
             <img
-              src="/logo-viktoria.svg" 
+              src="/logo-viktoria.png" 
               alt="Viktoria" 
-              className="h-10" />
-            <span className="font-serif-display text-xl tracking-[0.4em] text-silver-bright">VIKTORIA</span>
+              className="h-10 md:h-12 object-contain" />
+            <span className="font-serif-display text-lg md:text-xl tracking-[0.25em] text-silver-bright leading-none -translate-y-[6px] -translate-x-[24px]">
+              IKTORIA
+            </span>
+            
           </a>
           <nav className="hidden md:flex gap-10 text-xs tracking-[0.25em] uppercase text-silver-muted">
             <a href="#coleccion" className="hover:text-silver-bright transition-colors">Colección</a>
@@ -73,7 +91,7 @@ const Index = () => {
             <a href="#categorias" className="hover:text-silver-bright transition-colors">Categorías</a>
             <a href="#contacto" className="hover:text-silver-bright transition-colors">Contacto</a>
           </nav>
-          <a href="#coleccion" className="hidden md:inline-flex text-xs tracking-[0.25em] uppercase text-silver-bright/80 hover:text-silver-bright">Tienda →</a>
+          
         </div>
       </header>
 
@@ -109,52 +127,56 @@ const Index = () => {
         </div>
       </section>
 
+
       {/* PRODUCTOS */}
       <section id="coleccion" className="py-28 md:py-40 bg-navy-darker">
         <div className="container">
-          <Reveal>
-            <div className="text-center mb-20">
-              <p className="text-[10px] tracking-[0.5em] uppercase text-silver-muted mb-5">Selección</p>
-              <h2 className="font-serif-display text-4xl md:text-6xl text-silver-bright">
-                Piezas <em className="italic">destacadas</em>
-              </h2>
-              <div className="hairline w-24 mx-auto mt-8" />
-            </div>
-          </Reveal>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16">
-            {products.map((p, i) => (
-              <Reveal key={p.name} delay={i * 80}>
-                <article className="group cursor-pointer">
-                  <div className="relative overflow-hidden bg-gradient-to-br from-navy to-navy-darker aspect-[4/5] mb-4">
-                    <img
-                      src={p.img}
-                      alt={p.name}
-                      loading="lazy"
-                      className="w-full h-full max-h-[320px] object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
-                      
-                    />
-                    <div className="absolute inset-0 bg-navy-darker/0 group-hover:bg-navy-darker/30 transition-colors duration-700" />
-                    <div className="absolute bottom-0 inset-x-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                      <span className="text-[10px] tracking-[0.4em] uppercase text-silver-bright border border-silver/60 px-4 py-2 backdrop-blur-sm">
-                        Ver pieza
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-baseline">
-                    <div>
-                      <p className="text-[10px] tracking-[0.4em] uppercase text-silver-muted mb-2">{p.cat}</p>
-                      <h3 className="font-serif-display text-xl text-silver-bright">{p.name}</h3>
-                    </div>
-                    <p className="text-sm tracking-wider text-silver">{p.price}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+    
+          <div className="text-center mb-20">
+            <p className="text-[10px] tracking-[0.5em] uppercase text-silver-muted mb-5">
+              Colección
+            </p>
+            <h2 className="font-serif-display text-4xl md:text-6xl text-silver-bright">
+              Nuestras <em className="italic">piezas</em>
+            </h2>
+            <div className="hairline w-24 mx-auto mt-8" />
           </div>
-        </div>
-      </section>
 
+          {Object.entries(grouped).map(([category, items]) => (
+            <div key={category} className="mb-20">
+              <h3 className="text-xl mb-8 tracking-[0.2em] uppercase text-silver-bright">
+                {category}
+              </h3>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                {items.map((p) => (
+                  <div key={p.name} className="group">
+                    <div className="overflow-hidden rounded-lg">
+                      <img
+                        src={p.image}
+                        alt={p.name}
+                        className="w-full h-full max-h-[300px] object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+
+                    <h3 className="mt-3 text-sm tracking-wide text-silver-bright">
+                      {p.name}
+                    </h3>
+
+                    <p className="text-silver-muted">
+                      {p.price
+                        ? `$${p.price.toLocaleString("es-CO")}`
+                        : "Bajo pedido"}
+                    </p>
+                                       
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
+  </div>
+</section>
       {/* HISTORIA */}
       <section id="historia" className="py-28 md:py-40 bg-navy">
         <div className="container grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -188,14 +210,35 @@ const Index = () => {
             </div>
           </Reveal>
           <Reveal delay={150} className="order-1 md:order-2">
-            <div className="relative">
-              <div className="aspect-[3/4] overflow-hidden bg-navy-darker">
-                <img src={historiaImg} alt="Aretes de filigrana en plata Viktoria" loading="lazy" className="w-full h-full object-cover" />
+            
+            <div className="grid grid-rows-2 gap-4 h-[500px]">
+
+              {/* Imagen grande arriba */}
+              <img 
+                src="/proceso3.png"
+                alt="Filigrana Viktoria"
+                className="w-full h-full object-cover rounded-lg"
+              />
+
+              {/* Dos imágenes abajo */}
+              <div className="grid grid-cols-2 gap-4">
+                
+                <img 
+                  src="/proceso2.png"
+                  alt="Detalle artesanal"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+
+                <img 
+                  src="/proceso1.png"
+                  alt="Proceso de filigrana"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+
               </div>
-              <div className="absolute -bottom-8 -left-8 w-40 h-52 hidden md:block overflow-hidden border-4 border-navy">
-                <img src={artisanImg} alt="Manos artesanas trabajando filigrana" loading="lazy" className="w-full h-full object-cover" />
-              </div>
+
             </div>
+              
           </Reveal>
         </div>
       </section>
@@ -258,8 +301,13 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <div>
               <div className="flex items-baseline gap-3 mb-6">
-                <Monogram />
-                <span className="font-serif-display text-xl tracking-[0.5em] text-silver-bright">VIKTORIA</span>
+                <img
+                  src="/logo-viktoria.png" 
+                  alt="Viktoria" 
+                  className="h-10 md:h-12 object-contain" />
+                <span className="font-serif-display text-lg md:text-xl tracking-[0.25em] text-silver-bright leading-none -translate-y-[6px] -translate-x-[24px]">
+                  IKTORIA
+                </span>
               </div>
               <p className="text-silver-muted font-light leading-relaxed text-sm">
                 Joyería artesanal en filigrana, hecha a mano en Colombia con plata 970.
@@ -271,7 +319,7 @@ const Index = () => {
               <ul className="space-y-3 text-silver/90 text-sm">
                 <li>
                   <a href="https://wa.me/573108917952" target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-silver-bright transition-colors">
-                    <MessageCircle className="h-4 w-4" strokeWidth={1.2} />
+                    <Phone className="h-4 w-4" strokeWidth={1.2} />
                     +57 310 891 7952
                   </a>
                 </li>
