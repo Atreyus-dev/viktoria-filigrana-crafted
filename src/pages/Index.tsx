@@ -155,6 +155,7 @@ const Index = () => {
                       <img
                         src={p.image}
                         alt={p.name}
+                        loading="lazy"
                         className="w-full h-full max-h-[300px] object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
