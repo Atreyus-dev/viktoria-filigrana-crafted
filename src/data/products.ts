@@ -37,9 +37,9 @@ export const products: Product[] = [
   { name: "Topos Colibrí", price: 86000, image: "/products/topos-colibri.jpg", category: "Topos" },
   { name: "Topos Nala", price: 93000, image: "/products/topos-nala.jpg", category: "Topos" },
   { name: "Topos Libélula Aurea", price: 69000, image: "/products/topos-libelula-aurea.jpg", category: "Topos" },
-  { name: "Candongas Siena", price: 56000, image: "/products/topos-candongas-siena.jpg", category: "Topos" },  
-  { name: "Candongas Roma", price: 56000, image: "/products/topos-candongas-roma.jpg", category: "Topos" },
-  { name: "Candongas Laurel", price: 86000, image: "/products/topos-candongas-laurel.jpg", category: "Topos" },
+  { name: "Candongas Siena", price: 56000, image: "/products/candongas-siena.jpg", category: "Topos" },  
+  { name: "Candongas Roma", price: 56000, image: "/products/candongas-roma.jpg", category: "Topos" },
+  { name: "Candongas Laurel", price: 86000, image: "/products/candongas-laurel.jpg", category: "Topos" },
 
   { name: "Topos Serena", image: "/products/topos-serena.jpg", category: "Topos" },
   { name: "Topos Libélula Celeste", image: "/products/topos-libelula-celeste.jpg", category: "Topos" },
@@ -52,7 +52,6 @@ export const products: Product[] = [
   { name: "Topos Imperiale", price: 70000, image: "/products/topos-imperiale.jpg", category: "Topos" },
   { name: "Topos Valence", price: 122000, image: "/products/topos-valence.jpg", category: "Topos" },
 
-  { name: "Topos Valence Mini", image: "/products/topos-valence-mini.jpg", category: "Topos" },  
   { name: "Topos Sombrero Vueltiao", image: "/products/topos-sombrero-vueltiao.jpg", category: "Topos" },
 
   // ===== ARETES =====
@@ -71,7 +70,7 @@ export const products: Product[] = [
   { name: "Aretes Perla X3", image: "/products/aretes-perla-x3.jpg", category: "Aretes" },
   { name: "Aretes Blanca", image: "/products/aretes-blanca.jpg", category: "Aretes" },
   { name: "Aretes Caracol", image: "/products/aretes-caracol.jpg", category: "Aretes" },
-  { name: "Aretes Ezia", image: "/products/aretes-Ezia.jpg", category: "Aretes" },
+  { name: "Aretes Ezia", image: "/products/aretes-ezia.jpg", category: "Aretes" },
 
   // ===== DIJES =====
   { name: "Dije Trebol", price: 33000, image: "/products/dije-trebol.jpg", category: "Dijes" },
@@ -82,7 +81,7 @@ export const products: Product[] = [
   { name: "Dije Sorelle", price: 56000, image: "/products/dije-sorelle.jpg", category: "Dijes" },
   { name: "Dije Estrella Alba", price: 30000, image: "/products/dije-estrella-alba.jpg", category: "Dijes" },
   { name: "Dije Rayito", price: 17000, image: "/products/dije-rayito.jpg", category: "Dijes" },
-  { name: "Dije Rayito", price: 17000, image: "/products/dije-rayito.jpg", category: "Dijes" },
+  { name: "Dije Sombrero Vueltiao", price: 112000, image: "/products/dije-sombrero-vueltiao.jpg", category: "Dijes" },
 
   // ===== SETS =====
   { name: "Set Vuelo", price: 198000, image: "/products/set-vuelo.jpg", category: "Sets" },
