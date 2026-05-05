@@ -22,7 +22,7 @@ export const products: Product[] = [
  { name: "Topos Clover", image: "/products/topos-clover.jpg", category: "Topos" },
 
   { name: "Topos Elara", price: 23000, image: "/products/topos-elara.jpg", category: "Topos" },
-  { name: "Topos Roselle", price: 56000, image: "/products/topos-roselle.jpg", category: "Topos" },
+
   { name: "Topos Aveline", price: 56000, image: "/products/topos-aveline.jpg", category: "Topos" },
   { name: "Topos Perla", price: 36000, image: "/products/topos-perla.jpg", category: "Topos" },
   { name: "Topos Perla Mini", price: 15000, image: "/products/topos-perla-mini.jpg", category: "Topos" },
@@ -31,6 +31,7 @@ export const products: Product[] = [
 
   { name: "Topos Vida", image: "/products/topos-vida.jpg", category: "Topos" },
   { name: "Topos Dalia x4", image: "/products/topos-dalia-x4.jpg", category: "Topos" },
+    { name: "Topos Roselle", image: "/products/topos-roselle.jpg", category: "Topos" },
 
 
   { name: "Topos Colibrí", price: 86000, image: "/products/topos-colibri.jpg", category: "Topos" },
