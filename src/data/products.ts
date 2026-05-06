@@ -23,7 +23,7 @@ export const products: Product[] = [
 
   { name: "Topos Elara", price: 23000, image: "/products/topos-elara.jpg", category: "Topos" },
 
-  { name: "Topos Aveline", price: 56000, image: "/products/topos-aveline.jpg", category: "Topos" },
+
   { name: "Topos Perla", price: 36000, image: "/products/topos-perla.jpg", category: "Topos" },
   { name: "Topos Perla Mini", price: 15000, image: "/products/topos-perla-mini.jpg", category: "Topos" },
   { name: "Topos Dalia x3", price: 30000, image: "/products/topos-dalia-x3.jpg", category: "Topos" },
@@ -31,12 +31,12 @@ export const products: Product[] = [
 
   { name: "Topos Vida", image: "/products/topos-vida.jpg", category: "Topos" },
   { name: "Topos Dalia x4", image: "/products/topos-dalia-x4.jpg", category: "Topos" },
-    { name: "Topos Roselle", image: "/products/topos-roselle.jpg", category: "Topos" },
+  { name: "Topos Roselle", image: "/products/topos-roselle.jpg", category: "Topos" },
+  { name: "Topos Aveline", image: "/products/topos-aveline.jpg", category: "Topos" },
 
 
   { name: "Topos Colibrí", price: 86000, image: "/products/topos-colibri.jpg", category: "Topos" },
-  { name: "Topos Nala", price: 93000, image: "/products/topos-nala.jpg", category: "Topos" },
-  { name: "Topos Libélula Aurea", price: 69000, image: "/products/topos-libelula-aurea.jpg", category: "Topos" },
+
   { name: "Candongas Siena", price: 56000, image: "/products/candongas-siena.jpg", category: "Topos" },  
   { name: "Candongas Roma", price: 56000, image: "/products/candongas-roma.jpg", category: "Topos" },
   { name: "Candongas Laurel", price: 86000, image: "/products/candongas-laurel.jpg", category: "Topos" },
@@ -44,6 +44,8 @@ export const products: Product[] = [
   { name: "Topos Serena", image: "/products/topos-serena.jpg", category: "Topos" },
   { name: "Topos Libélula Celeste", image: "/products/topos-libelula-celeste.jpg", category: "Topos" },
   { name: "Topos Mariposa", image: "/products/topos-mariposa.jpg", category: "Topos" },
+  { name: "Topos Nala", image: "/products/topos-nala.jpg", category: "Topos" },
+  { name: "Topos Libélula Aurea", image: "/products/topos-libelula-aurea.jpg", category: "Topos" },
 
 
   { name: "Topos Largos Eva", price: 182000, image: "/products/topos-largos-eva.jpg", category: "Topos" },
